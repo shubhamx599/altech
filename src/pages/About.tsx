@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StatCard } from "@/components/ui/StatCard";
 import { CTASection } from "@/components/ui/CTASection";
@@ -82,6 +83,12 @@ export default function About() {
 
   return (
     <div className="pt-20">
+      <SEO
+        title="About Us"
+        description="Learn about Altech Equipments - India's leading crane rental company with 15+ years of experience, 2L+ tons erected, and zero safety incidents."
+        canonical="/about"
+        keywords="about Altech, crane company India, heavy lifting expertise, WTG specialist"
+      />
       {/* Hero Banner */}
       <section className="relative py-20 md:py-32">
         <div className="absolute inset-0 z-0">
