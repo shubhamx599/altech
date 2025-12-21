@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
@@ -9,6 +10,12 @@ export default function Contact() {
 
   return (
     <div className="pt-20">
+      <SEO
+        title="Contact Us"
+        description="Contact Altech Equipments for crane rental inquiries. Call +91 98737 20646 or email altech_equipments@yahoo.com. Pan-India operations with 24/7 support."
+        canonical="/contact"
+        keywords="contact Altech, crane rental inquiry, heavy lifting quote, crane hire India"
+      />
       {/* Hero Banner */}
       <section className="relative py-20 md:py-32">
         <div className="absolute inset-0 z-0">
