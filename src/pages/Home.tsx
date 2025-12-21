@@ -44,7 +44,7 @@ const services = [
     title: "Heavy Lifting",
     description:
       "State-of-the-art crawler cranes with capacities from 100T to 800T for critical lifts.",
-    icon: Crane,
+    icon: Construction,
   },
   {
     title: "Infrastructure Projects",
