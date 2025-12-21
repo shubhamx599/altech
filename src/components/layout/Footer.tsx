@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Globe, ArrowUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { MapPin, Phone, Mail, Globe } from "lucide-react";
 
 const quickLinks = [
   { name: "About Us", path: "/about" },
@@ -20,10 +19,6 @@ const services = [
 ];
 
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <footer className="gradient-navy text-white">
       <div className="container-custom section-padding">
@@ -125,19 +120,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/60 text-sm text-center md:text-left">
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <p className="text-white/60 text-sm text-center">
             © {new Date().getFullYear()} Altech Equipments Pvt. Ltd. All rights
             reserved.
           </p>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={scrollToTop}
-            className="border-accent/50 text-accent hover:bg-accent hover:text-accent-foreground"
-          >
-            <ArrowUp className="h-5 w-5" />
-          </Button>
         </div>
       </div>
     </footer>
