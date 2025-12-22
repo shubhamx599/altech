@@ -124,11 +124,11 @@ export default function Home() {
         keywords="crane rental, heavy lifting, WTG erection, girder erection, crawler crane, infrastructure"
       />
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20">
+      <section className="relative min-h-screen flex items-center justify-center pt-24">
         {/* Background */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-4 top-24 z-0 rounded-3xl overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&auto=format&fit=crop"
             alt="Heavy crane at construction site"
             className="w-full h-full object-cover"
           />
