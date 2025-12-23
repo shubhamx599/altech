@@ -20,12 +20,6 @@ import {
   Users,
 } from "lucide-react";
 
-const stats = [
-  { value: "2", suffix: "L+", label: "Tons Erected" },
-  { value: "0", suffix: "", label: "Incidents" },
-  { value: "10", suffix: "+", label: "Advanced Cranes" },
-  { value: "15", suffix: "+", label: "Years Experience" },
-];
 
 const services = [
   {
@@ -125,7 +119,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-24">
         {/* Background */}
-        <div className="absolute inset-4 top-24 z-0 rounded-3xl overflow-hidden">
+        <div className="absolute inset-x-16 md:inset-x-24 lg:inset-x-32 inset-y-4 top-24 z-0 rounded-3xl overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop"
             alt="Heavy crane at construction site"
@@ -200,23 +194,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Stats preview in hero */}
-          <div
-            className={cn(
-              "mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto",
-              "opacity-0",
-              heroRef.isVisible && "animate-fade-up delay-400"
-            )}
-          >
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
-                <div className="font-display text-3xl md:text-4xl text-accent">
-                  {stat.value}{stat.suffix}
-                </div>
-                <div className="text-sm text-white/70 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Scroll indicator */}
