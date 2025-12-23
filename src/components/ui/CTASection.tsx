@@ -59,8 +59,8 @@ export function CTASection({
           <Link to="/contact">
             <Button
               size="lg"
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 gap-2 text-base"
+              variant="hero"
+              className="gap-2 text-base"
             >
               Contact Us
               <ArrowRight className="h-5 w-5" />

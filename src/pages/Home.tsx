@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { StatCard } from "@/components/ui/StatCard";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { EquipmentCard } from "@/components/ui/EquipmentCard";
 import { ProjectCard } from "@/components/ui/ProjectCard";
@@ -128,11 +127,14 @@ export default function Home() {
         {/* Background */}
         <div className="absolute inset-4 top-24 z-0 rounded-3xl overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop"
             alt="Heavy crane at construction site"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--navy-dark)/0.95)] via-[hsl(var(--navy)/0.85)] to-[hsl(var(--navy)/0.7)]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--navy-dark)/0.95)] via-[hsl(var(--navy)/0.85)] to-[hsl(var(--navy)/0.6)]" />
+          {/* Decorative elements */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--accent)/0.15),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,hsl(var(--navy-light)/0.3),transparent_50%)]" />
         </div>
 
         {/* Content */}
@@ -142,7 +144,7 @@ export default function Home() {
         >
           <span
             className={cn(
-              "inline-block px-4 py-2 bg-accent/20 text-accent text-sm font-semibold tracking-widest uppercase rounded-full mb-6",
+              "inline-block px-5 py-2.5 bg-accent/20 text-accent text-sm font-semibold tracking-widest uppercase rounded-full mb-8 border border-accent/30 backdrop-blur-sm",
               "opacity-0",
               heroRef.isVisible && "animate-fade-up"
             )}
@@ -151,29 +153,29 @@ export default function Home() {
           </span>
           <h1
             className={cn(
-              "font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider leading-tight",
+              "font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider leading-[0.9]",
               "opacity-0",
               heroRef.isVisible && "animate-fade-up delay-100"
             )}
           >
-            PRECISION LIFTING
+            PRECISION
             <br />
-            <span className="text-accent">ZERO COMPROMISE</span>
+            <span className="text-accent drop-shadow-[0_0_30px_hsl(var(--accent)/0.5)]">LIFTING</span>
           </h1>
           <p
             className={cn(
-              "mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto",
+              "mt-8 text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed",
               "opacity-0",
               heroRef.isVisible && "animate-fade-up delay-200"
             )}
           >
             Delivering excellence in crane rental, WTG erection, and girder
-            installation with over 2 lakh tons of successful projects and an
-            impeccable zero-incident safety record.
+            installation with over <span className="text-accent font-semibold">2 lakh tons</span> of successful projects 
+            and an impeccable <span className="text-accent font-semibold">zero-incident</span> safety record.
           </p>
           <div
             className={cn(
-              "mt-10 flex flex-col sm:flex-row items-center justify-center gap-4",
+              "mt-12 flex flex-col sm:flex-row items-center justify-center gap-4",
               "opacity-0",
               heroRef.isVisible && "animate-fade-up delay-300"
             )}
@@ -181,7 +183,7 @@ export default function Home() {
             <Link to="/services">
               <Button
                 size="lg"
-                className="bg-accent text-accent-foreground hover:bg-yellow-hover gap-2 text-base"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2 text-base h-14 px-8 text-lg font-semibold shadow-lg shadow-accent/30"
               >
                 Explore Our Services
                 <ArrowRight className="h-5 w-5" />
@@ -190,36 +192,37 @@ export default function Home() {
             <Link to="/equipment">
               <Button
                 size="lg"
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 gap-2 text-base"
+                variant="hero"
+                className="gap-2 text-base h-14 px-8 text-lg"
               >
                 View Equipment Fleet
               </Button>
             </Link>
           </div>
+
+          {/* Stats preview in hero */}
+          <div
+            className={cn(
+              "mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto",
+              "opacity-0",
+              heroRef.isVisible && "animate-fade-up delay-400"
+            )}
+          >
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                <div className="font-display text-3xl md:text-4xl text-accent">
+                  {stat.value}{stat.suffix}
+                </div>
+                <div className="text-sm text-white/70 mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-2 bg-accent rounded-full animate-bounce" />
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {stats.map((stat, index) => (
-              <StatCard
-                key={stat.label}
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-                delay={index * 100}
-              />
-            ))}
+          <div className="w-8 h-12 border-2 border-white/30 rounded-full flex items-start justify-center p-2 backdrop-blur-sm">
+            <div className="w-1.5 h-3 bg-accent rounded-full animate-bounce" />
           </div>
         </div>
       </section>

@@ -1,16 +1,23 @@
 import { useState, useMemo } from "react";
 import SEO from "@/components/SEO";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { EquipmentCard } from "@/components/ui/EquipmentCard";
 import { CTASection } from "@/components/ui/CTASection";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 
 interface Equipment {
   name: string;
   capacity: string;
   capacityNum: number;
-  image: string;
   features: string[];
   category: string;
 }
@@ -20,7 +27,6 @@ const equipment: Equipment[] = [
     name: "Zoomlion ZCC9800W",
     capacity: "800 TON",
     capacityNum: 800,
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop",
     features: [
       "Max hub height: 168m",
       "WTG erection specialist",
@@ -33,7 +39,6 @@ const equipment: Equipment[] = [
     name: "Zoomlion ZCC4000V",
     capacity: "400 TON",
     capacityNum: 400,
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&auto=format&fit=crop",
     features: [
       "Heavy duty lifting",
       "Versatile boom configurations",
@@ -46,7 +51,6 @@ const equipment: Equipment[] = [
     name: "Zoomlion ZCC3200V",
     capacity: "320 TON",
     capacityNum: 320,
-    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&auto=format&fit=crop",
     features: [
       "Multi-purpose operations",
       "Quick assembly",
@@ -59,7 +63,6 @@ const equipment: Equipment[] = [
     name: "Hitachi Sumitomo SCX 2800",
     capacity: "275 TON",
     capacityNum: 275,
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop",
     features: [
       "Japanese precision engineering",
       "High reliability",
@@ -72,7 +75,6 @@ const equipment: Equipment[] = [
     name: "Kobelco CK 2750G-2",
     capacity: "275 TON",
     capacityNum: 275,
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&auto=format&fit=crop",
     features: [
       "G-series advancement",
       "Fuel efficient",
@@ -85,7 +87,6 @@ const equipment: Equipment[] = [
     name: "Kobelco CK 2500-2",
     capacity: "250 TON",
     capacityNum: 250,
-    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&auto=format&fit=crop",
     features: [
       "Proven performance",
       "Easy maintenance",
@@ -98,7 +99,6 @@ const equipment: Equipment[] = [
     name: "Kobelco CK 1600-2",
     capacity: "160 TON",
     capacityNum: 160,
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop",
     features: [
       "Medium capacity workhorse",
       "Quick setup time",
@@ -111,7 +111,6 @@ const equipment: Equipment[] = [
     name: "Kobelco CK 1100G-2",
     capacity: "110 TON",
     capacityNum: 110,
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&auto=format&fit=crop",
     features: [
       "G-series technology",
       "Compact footprint",
@@ -124,7 +123,6 @@ const equipment: Equipment[] = [
     name: "Kobelco CK 1000G-2",
     capacity: "100 TON",
     capacityNum: 100,
-    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&auto=format&fit=crop",
     features: [
       "Entry-level heavy crane",
       "Easy transportation",
@@ -137,7 +135,6 @@ const equipment: Equipment[] = [
     name: "Axle Puller System",
     capacity: "SUPPORT",
     capacityNum: 0,
-    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&auto=format&fit=crop",
     features: [
       "Girder transportation",
       "Heavy load movement",
@@ -204,7 +201,7 @@ export default function Equipment() {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div className="bg-card p-6 rounded-xl border border-border">
-              <div className="font-display text-3xl md:text-4xl text-primary dark:text-accent">
+              <div className="font-display text-3xl md:text-4xl text-accent">
                 10+
               </div>
               <div className="text-sm text-muted-foreground mt-1">
@@ -212,7 +209,7 @@ export default function Equipment() {
               </div>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border">
-              <div className="font-display text-3xl md:text-4xl text-primary dark:text-accent">
+              <div className="font-display text-3xl md:text-4xl text-accent">
                 800T
               </div>
               <div className="text-sm text-muted-foreground mt-1">
@@ -220,7 +217,7 @@ export default function Equipment() {
               </div>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border">
-              <div className="font-display text-3xl md:text-4xl text-primary dark:text-accent">
+              <div className="font-display text-3xl md:text-4xl text-accent">
                 168m
               </div>
               <div className="text-sm text-muted-foreground mt-1">
@@ -228,7 +225,7 @@ export default function Equipment() {
               </div>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border">
-              <div className="font-display text-3xl md:text-4xl text-primary dark:text-accent">
+              <div className="font-display text-3xl md:text-4xl text-accent">
                 24/7
               </div>
               <div className="text-sm text-muted-foreground mt-1">
@@ -239,7 +236,7 @@ export default function Equipment() {
         </div>
       </section>
 
-      {/* Equipment Grid with Filters */}
+      {/* Equipment Table with Filters */}
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeading
@@ -259,7 +256,7 @@ export default function Equipment() {
                   onClick={() => setSelectedCategory(category)}
                   className={cn(
                     selectedCategory === category &&
-                      "bg-accent text-accent-foreground hover:bg-yellow-hover"
+                      "bg-accent text-accent-foreground hover:bg-accent/90"
                   )}
                 >
                   {category}
@@ -286,15 +283,68 @@ export default function Equipment() {
             </div>
           </div>
 
-          {/* Equipment Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredEquipment.map((item, index) => (
-              <EquipmentCard
-                key={item.name}
-                {...item}
-                delay={(index % 4) * 100}
-              />
-            ))}
+          {/* Equipment Table */}
+          <div className="rounded-xl border border-border bg-card overflow-hidden">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-muted/50 hover:bg-muted/50">
+                  <TableHead className="font-display text-base tracking-wide">Equipment Name</TableHead>
+                  <TableHead className="font-display text-base tracking-wide">Category</TableHead>
+                  <TableHead className="font-display text-base tracking-wide">Capacity</TableHead>
+                  <TableHead className="font-display text-base tracking-wide hidden md:table-cell">Key Features</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredEquipment.map((item, index) => (
+                  <TableRow 
+                    key={item.name}
+                    className={cn(
+                      "transition-colors",
+                      index % 2 === 0 ? "bg-background" : "bg-muted/30"
+                    )}
+                  >
+                    <TableCell className="font-semibold text-foreground">
+                      {item.name}
+                    </TableCell>
+                    <TableCell>
+                      <Badge 
+                        variant="secondary" 
+                        className={cn(
+                          "font-medium",
+                          item.category === "Crawler Crane" 
+                            ? "bg-accent/20 text-accent-foreground border border-accent/30" 
+                            : "bg-primary/10 text-foreground border border-primary/20"
+                        )}
+                      >
+                        {item.category}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <span className="font-display text-lg text-accent">
+                        {item.capacity}
+                      </span>
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      <div className="flex flex-wrap gap-1.5">
+                        {item.features.slice(0, 2).map((feature, i) => (
+                          <span 
+                            key={i} 
+                            className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                        {item.features.length > 2 && (
+                          <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
+                            +{item.features.length - 2} more
+                          </span>
+                        )}
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
 
           {filteredEquipment.length === 0 && (
