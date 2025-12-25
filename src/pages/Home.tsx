@@ -127,7 +127,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-24">
         {/* Background */}
-        <div className="absolute inset-4 top-24 z-0 rounded-3xl overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop"
             alt="Heavy crane at construction site"

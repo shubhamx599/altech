@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@/hooks/useTheme";
 import { Layout } from "@/components/layout/Layout";
 import { AnimatedRoutes } from "@/components/layout/AnimatedRoutes";
+import { ScrollToTopOnRoute } from "@/components/layout/ScrollToTopOnRoute";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTopOnRoute />
           <Layout>
             <AnimatedRoutes />
           </Layout>
