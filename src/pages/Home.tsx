@@ -119,7 +119,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-24">
         {/* Background */}
-        <div className="absolute inset-x-16 md:inset-x-24 lg:inset-x-32 inset-y-4 top-24 z-0 rounded-3xl overflow-hidden">
+        <div className="absolute inset-4 top-24 z-0 rounded-3xl overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop"
             alt="Heavy crane at construction site"
@@ -200,6 +200,30 @@ export default function Home() {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
           <div className="w-8 h-12 border-2 border-white/30 rounded-full flex items-start justify-center p-2 backdrop-blur-sm">
             <div className="w-1.5 h-3 bg-accent rounded-full animate-bounce" />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-muted">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { value: "2L+", label: "Tons Erected" },
+              { value: "0", label: "Incidents" },
+              { value: "10+", label: "Advanced Cranes" },
+              { value: "15+", label: "Years Experience" },
+            ].map((stat, index) => (
+              <div
+                key={stat.label}
+                className="text-center p-6 rounded-xl bg-background border border-border shadow-sm"
+              >
+                <div className="font-display text-4xl md:text-5xl text-accent">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground mt-2 font-medium">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
