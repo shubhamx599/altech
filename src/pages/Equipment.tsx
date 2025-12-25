@@ -288,10 +288,9 @@ export default function Equipment() {
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/50 hover:bg-muted/50">
+                  <TableHead className="font-display text-base tracking-wide">S.No.</TableHead>
                   <TableHead className="font-display text-base tracking-wide">Equipment Name</TableHead>
-                  <TableHead className="font-display text-base tracking-wide">Category</TableHead>
                   <TableHead className="font-display text-base tracking-wide">Capacity</TableHead>
-                  <TableHead className="font-display text-base tracking-wide hidden md:table-cell">Key Features</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -303,43 +302,16 @@ export default function Equipment() {
                       index % 2 === 0 ? "bg-background" : "bg-muted/30"
                     )}
                   >
+                    <TableCell className="font-display text-lg text-muted-foreground">
+                      {index + 1}
+                    </TableCell>
                     <TableCell className="font-semibold text-foreground">
                       {item.name}
-                    </TableCell>
-                    <TableCell>
-                      <Badge 
-                        variant="secondary" 
-                        className={cn(
-                          "font-medium",
-                          item.category === "Crawler Crane" 
-                            ? "bg-accent/20 text-accent-foreground border border-accent/30" 
-                            : "bg-primary/10 text-foreground border border-primary/20"
-                        )}
-                      >
-                        {item.category}
-                      </Badge>
                     </TableCell>
                     <TableCell>
                       <span className="font-display text-lg text-accent">
                         {item.capacity}
                       </span>
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell">
-                      <div className="flex flex-wrap gap-1.5">
-                        {item.features.slice(0, 2).map((feature, i) => (
-                          <span 
-                            key={i} 
-                            className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground"
-                          >
-                            {feature}
-                          </span>
-                        ))}
-                        {item.features.length > 2 && (
-                          <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
-                            +{item.features.length - 2} more
-                          </span>
-                        )}
-                      </div>
                     </TableCell>
                   </TableRow>
                 ))}
