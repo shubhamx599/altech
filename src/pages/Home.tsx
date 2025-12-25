@@ -7,6 +7,7 @@ import { EquipmentCard } from "@/components/ui/EquipmentCard";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { ClientLogo } from "@/components/ui/ClientLogo";
 import { CTASection } from "@/components/ui/CTASection";
+import { StatCard } from "@/components/ui/StatCard";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
 import {
@@ -19,6 +20,13 @@ import {
   Target,
   Users,
 } from "lucide-react";
+
+const stats = [
+  { value: "2", suffix: "L+", label: "Tons Erected" },
+  { value: "0", suffix: "", label: "Incidents" },
+  { value: "10", suffix: "+", label: "Advanced Cranes" },
+  { value: "15", suffix: "+", label: "Years Experience" },
+];
 
 
 const services = [
@@ -208,21 +216,14 @@ export default function Home() {
       <section className="py-16 bg-muted">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { value: "2L+", label: "Tons Erected" },
-              { value: "0", label: "Incidents" },
-              { value: "10+", label: "Advanced Cranes" },
-              { value: "15+", label: "Years Experience" },
-            ].map((stat, index) => (
-              <div
+            {stats.map((stat, index) => (
+              <StatCard
                 key={stat.label}
-                className="text-center p-6 rounded-xl bg-background border border-border shadow-sm"
-              >
-                <div className="font-display text-4xl md:text-5xl text-accent">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground mt-2 font-medium">{stat.label}</div>
-              </div>
+                value={stat.value}
+                suffix={stat.suffix}
+                label={stat.label}
+                delay={index * 100}
+              />
             ))}
           </div>
         </div>
