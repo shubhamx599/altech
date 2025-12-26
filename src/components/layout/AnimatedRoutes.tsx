@@ -6,6 +6,7 @@ import About from "@/pages/About";
 import Services from "@/pages/Services";
 import Equipment from "@/pages/Equipment";
 import Projects from "@/pages/Projects";
+import Gallery from "@/pages/Gallery";
 import Clients from "@/pages/Clients";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/NotFound";
@@ -21,6 +22,7 @@ export function AnimatedRoutes() {
         <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
         <Route path="/equipment" element={<PageTransition><Equipment /></PageTransition>} />
         <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+        <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
         <Route path="/clients" element={<PageTransition><Clients /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
