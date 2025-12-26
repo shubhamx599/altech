@@ -1,9 +1,6 @@
-import { useState, useMemo } from "react";
 import SEO from "@/components/SEO";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/ui/CTASection";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Table,
   TableBody,
@@ -145,28 +142,7 @@ const equipment: Equipment[] = [
   },
 ];
 
-const categories = ["All", "Crawler Crane", "Support Equipment"];
-const capacityFilters = [
-  { label: "All Capacities", min: 0, max: Infinity },
-  { label: "100-200 Ton", min: 100, max: 200 },
-  { label: "200-400 Ton", min: 200, max: 400 },
-  { label: "400+ Ton", min: 400, max: Infinity },
-];
-
 export default function Equipment() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedCapacity, setSelectedCapacity] = useState(capacityFilters[0]);
-
-  const filteredEquipment = useMemo(() => {
-    return equipment.filter((item) => {
-      const categoryMatch =
-        selectedCategory === "All" || item.category === selectedCategory;
-      const capacityMatch =
-        item.capacityNum >= selectedCapacity.min &&
-        item.capacityNum < selectedCapacity.max;
-      return categoryMatch && (selectedCapacity.label === "All Capacities" || capacityMatch);
-    });
-  }, [selectedCategory, selectedCapacity]);
 
   return (
     <div className="pt-20">
@@ -245,44 +221,6 @@ export default function Equipment() {
             subtitle="Explore our comprehensive range of cranes and support equipment."
           />
 
-          {/* Filters */}
-          <div className="mb-8 flex flex-col md:flex-row gap-4 items-start md:items-center justify-center">
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedCategory(category)}
-                  className={cn(
-                    selectedCategory === category &&
-                      "bg-accent text-accent-foreground hover:bg-accent/90"
-                  )}
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {capacityFilters.map((filter) => (
-                <Button
-                  key={filter.label}
-                  variant={
-                    selectedCapacity.label === filter.label ? "default" : "outline"
-                  }
-                  size="sm"
-                  onClick={() => setSelectedCapacity(filter)}
-                  className={cn(
-                    selectedCapacity.label === filter.label &&
-                      "bg-primary text-primary-foreground"
-                  )}
-                >
-                  {filter.label}
-                </Button>
-              ))}
-            </div>
-          </div>
-
           {/* Equipment Table */}
           <div className="rounded-xl border border-border bg-card overflow-hidden">
             <Table>
@@ -294,7 +232,7 @@ export default function Equipment() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filteredEquipment.map((item, index) => (
+                {equipment.map((item, index) => (
                   <TableRow 
                     key={item.name}
                     className={cn(
@@ -318,12 +256,6 @@ export default function Equipment() {
               </TableBody>
             </Table>
           </div>
-
-          {filteredEquipment.length === 0 && (
-            <div className="text-center py-12 text-muted-foreground">
-              No equipment found matching your filters.
-            </div>
-          )}
         </div>
       </section>
 
