@@ -5,7 +5,7 @@ import { CTASection } from "@/components/ui/CTASection";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ZoomIn, Download } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface GalleryProject {
@@ -89,6 +89,10 @@ export default function Gallery() {
   const [currentProject, setCurrentProject] = useState<GalleryProject | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
 
   const filteredProjects =
     selectedCategory === "All"
@@ -122,6 +126,47 @@ export default function Gallery() {
       );
     }
   }, [currentProject]);
+
+  const handleDownload = async () => {
+    if (!currentProject) return;
+    const imageUrl = currentProject.images[currentImageIndex];
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${currentProject.title}-${currentImageIndex + 1}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      // Fallback: open image in new tab
+      window.open(imageUrl, "_blank");
+    }
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      nextImage();
+    } else if (isRightSwipe) {
+      prevImage();
+    }
+  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -256,23 +301,40 @@ export default function Gallery() {
                   {currentImageIndex + 1} / {currentProject?.images.length}
                 </p>
               </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={closeLightbox}
-                className="text-white hover:bg-white/20"
-              >
-                <X className="h-6 w-6" />
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={handleDownload}
+                  className="text-white hover:bg-white/20"
+                  title="Download image"
+                >
+                  <Download className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={closeLightbox}
+                  className="text-white hover:bg-white/20"
+                >
+                  <X className="h-6 w-6" />
+                </Button>
+              </div>
             </div>
 
             {/* Image Container */}
-            <div className="flex-1 flex items-center justify-center p-4 pt-20 pb-4">
+            <div 
+              className="flex-1 flex items-center justify-center p-4 pt-20 pb-4"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               {currentProject && (
                 <img
                   src={currentProject.images[currentImageIndex]}
                   alt={`${currentProject.title} - Image ${currentImageIndex + 1}`}
-                  className="max-w-full max-h-[75vh] object-contain rounded-lg"
+                  className="max-w-full max-h-[75vh] object-contain rounded-lg select-none"
+                  draggable={false}
                 />
               )}
             </div>
