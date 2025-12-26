@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import SEO from "@/components/SEO";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/ui/CTASection";
@@ -101,27 +101,49 @@ export default function Gallery() {
     setLightboxOpen(true);
   };
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setLightboxOpen(false);
     setCurrentProject(null);
     setCurrentImageIndex(0);
-  };
+  }, []);
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     if (currentProject) {
       setCurrentImageIndex((prev) =>
         prev === currentProject.images.length - 1 ? 0 : prev + 1
       );
     }
-  };
+  }, [currentProject]);
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     if (currentProject) {
       setCurrentImageIndex((prev) =>
         prev === 0 ? currentProject.images.length - 1 : prev - 1
       );
     }
-  };
+  }, [currentProject]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+
+      switch (e.key) {
+        case "Escape":
+          closeLightbox();
+          break;
+        case "ArrowLeft":
+          prevImage();
+          break;
+        case "ArrowRight":
+          nextImage();
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxOpen, closeLightbox, nextImage, prevImage]);
 
   return (
     <>
