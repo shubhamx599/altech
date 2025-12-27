@@ -90,7 +90,7 @@ export default function About() {
         keywords="about Altech, crane company India, heavy lifting expertise, WTG specialist"
       />
       {/* Hero Banner */}
-      <section className="relative py-20 md:py-32">
+      <section className="relative py-16 md:py-24 lg:py-32">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop"
@@ -99,20 +99,20 @@ export default function About() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--navy-dark)/0.95)] to-[hsl(var(--navy)/0.8)]" />
         </div>
-        <div className="relative z-10 container-custom text-center text-white">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl tracking-wider animate-fade-up">
+        <div className="relative z-10 container-custom text-center text-white px-4">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider animate-fade-up">
             ABOUT US
           </h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto animate-fade-up delay-100">
+          <p className="mt-3 md:mt-4 text-base md:text-lg text-white/80 max-w-2xl mx-auto animate-fade-up delay-100">
             Building India's infrastructure with precision, safety, and excellence
           </p>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-muted">
+      <section className="py-10 md:py-16 bg-muted">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 md:gap-6">
             {stats.map((stat, index) => (
               <StatCard
                 key={stat.label}
@@ -131,7 +131,7 @@ export default function About() {
         <div className="container-custom">
           <div
             ref={introRef.ref}
-            className="grid lg:grid-cols-2 gap-12 items-center"
+            className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center"
           >
             <div>
               <span
@@ -146,7 +146,7 @@ export default function About() {
               </span>
               <h2
                 className={cn(
-                  "font-display text-3xl md:text-4xl lg:text-5xl tracking-wide text-foreground",
+                  "font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide text-foreground",
                   "opacity-0",
                   introRef.isVisible && "animate-fade-up delay-100"
                 )}
@@ -201,7 +201,7 @@ export default function About() {
         <div className="container-custom">
           <div
             ref={storyRef.ref}
-            className="grid lg:grid-cols-2 gap-12 items-center"
+            className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center"
           >
             <div
               className={cn(
@@ -229,7 +229,7 @@ export default function About() {
               </span>
               <h2
                 className={cn(
-                  "font-display text-3xl md:text-4xl tracking-wide text-foreground",
+                  "font-display text-2xl sm:text-3xl md:text-4xl tracking-wide text-foreground",
                   "opacity-0",
                   storyRef.isVisible && "animate-fade-up delay-100"
                 )}
@@ -275,7 +275,7 @@ export default function About() {
           />
           <div
             ref={strengthsRef.ref}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-6"
           >
             {strengths.map((strength, index) => (
               <div
@@ -311,7 +311,7 @@ export default function About() {
             subtitle="The principles that guide every decision we make."
             light
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-6">
             {values.map((value, index) => (
               <div
                 key={value.title}

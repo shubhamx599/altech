@@ -126,7 +126,7 @@ export default function Services() {
         keywords="WTG erection, girder erection, heavy lifting services, crane services India"
       />
       {/* Hero Banner */}
-      <section className="relative py-20 md:py-32">
+      <section className="relative py-16 md:py-24 lg:py-32">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1920&auto=format&fit=crop"
@@ -135,11 +135,11 @@ export default function Services() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--navy-dark)/0.95)] to-[hsl(var(--navy)/0.8)]" />
         </div>
-        <div className="relative z-10 container-custom text-center text-white">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl tracking-wider animate-fade-up">
+        <div className="relative z-10 container-custom text-center text-white px-4">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider animate-fade-up">
             OUR SERVICES
           </h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto animate-fade-up delay-100">
+          <p className="mt-3 md:mt-4 text-base md:text-lg text-white/80 max-w-2xl mx-auto animate-fade-up delay-100">
             Comprehensive heavy lifting and erection solutions for India's infrastructure
           </p>
         </div>
@@ -153,7 +153,7 @@ export default function Services() {
             title="SPECIALIZED SERVICES"
             subtitle="From wind turbine erection to heavy industrial lifting, we deliver excellence across all domains."
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
             {services.map((service, index) => (
               <ServiceCard
                 key={service.title}
@@ -177,7 +177,7 @@ export default function Services() {
             title="OUR PROCESS"
             subtitle="A systematic approach to ensure project success."
           />
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 md:gap-6">
             {[
               {
                 step: "01",
