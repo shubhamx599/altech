@@ -85,7 +85,7 @@ export function StatCard({
       )}
       <div
         className={cn(
-          "font-display text-4xl md:text-5xl tracking-wide",
+          "font-display text-3xl sm:text-4xl md:text-5xl tracking-wide",
           light ? "text-accent" : "text-primary dark:text-accent"
         )}
       >

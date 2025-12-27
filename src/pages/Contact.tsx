@@ -17,7 +17,7 @@ export default function Contact() {
         keywords="contact Altech, crane rental inquiry, heavy lifting quote, crane hire India"
       />
       {/* Hero Banner */}
-      <section className="relative py-20 md:py-32">
+      <section className="relative py-16 md:py-24 lg:py-32">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop"
@@ -26,11 +26,11 @@ export default function Contact() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--navy-dark)/0.95)] to-[hsl(var(--navy)/0.8)]" />
         </div>
-        <div className="relative z-10 container-custom text-center text-white">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl tracking-wider animate-fade-up">
+        <div className="relative z-10 container-custom text-center text-white px-4">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider animate-fade-up">
             CONTACT US
           </h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto animate-fade-up delay-100">
+          <p className="mt-3 md:mt-4 text-base md:text-lg text-white/80 max-w-2xl mx-auto animate-fade-up delay-100">
             Get in touch with us for crane rental inquiries and project discussions
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function Contact() {
       {/* Contact Info */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Contact Details */}
             <div ref={contactRef.ref}>
               <span
@@ -54,7 +54,7 @@ export default function Contact() {
               </span>
               <h2
                 className={cn(
-                  "font-display text-3xl md:text-4xl tracking-wide text-foreground",
+                  "font-display text-2xl sm:text-3xl md:text-4xl tracking-wide text-foreground",
                   "opacity-0",
                   contactRef.isVisible && "animate-fade-up delay-100"
                 )}
@@ -205,7 +205,7 @@ export default function Contact() {
             title="READY TO SERVE"
             subtitle="Our commitment to excellence in every project."
           />
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
             {[
               {
                 title: "Pan-India Operations",
@@ -240,16 +240,16 @@ export default function Contact() {
       </section>
 
       {/* CTA */}
-      <section className="gradient-navy py-16 md:py-24">
-        <div className="container-custom text-center">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white tracking-wide animate-fade-up">
+      <section className="gradient-navy py-12 md:py-16 lg:py-24">
+        <div className="container-custom text-center px-4">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-wide animate-fade-up">
             LET'S BUILD TOGETHER
           </h2>
-          <p className="mt-4 text-white/80 text-lg max-w-2xl mx-auto animate-fade-up delay-100">
+          <p className="mt-3 md:mt-4 text-white/80 text-base md:text-lg max-w-2xl mx-auto animate-fade-up delay-100">
             Contact us today to discuss your project requirements and experience
             the Altech difference.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-200">
+          <div className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 animate-fade-up delay-200">
             <a
               href="tel:+919873720646"
               className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-yellow-hover transition-colors"

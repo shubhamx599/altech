@@ -21,8 +21,8 @@ const services = [
 export function Footer() {
   return (
     <footer className="gradient-navy text-white">
-      <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <div className="container-custom py-10 md:py-16 lg:py-24">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           {/* Company Info */}
           <div className="space-y-4">
             <div>

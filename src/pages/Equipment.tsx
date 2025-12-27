@@ -153,7 +153,7 @@ export default function Equipment() {
         keywords="crawler crane rental, Zoomlion crane, Kobelco crane, 800 ton crane, heavy equipment"
       />
       {/* Hero Banner */}
-      <section className="relative py-20 md:py-32">
+      <section className="relative py-16 md:py-24 lg:py-32">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop"
@@ -162,49 +162,49 @@ export default function Equipment() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--navy-dark)/0.95)] to-[hsl(var(--navy)/0.8)]" />
         </div>
-        <div className="relative z-10 container-custom text-center text-white">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl tracking-wider animate-fade-up">
+        <div className="relative z-10 container-custom text-center text-white px-4">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider animate-fade-up">
             OUR EQUIPMENT
           </h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto animate-fade-up delay-100">
+          <p className="mt-3 md:mt-4 text-base md:text-lg text-white/80 max-w-2xl mx-auto animate-fade-up delay-100">
             State-of-the-art crawler cranes and support equipment for precision lifting
           </p>
         </div>
       </section>
 
       {/* Fleet Overview */}
-      <section className="py-12 bg-muted">
+      <section className="py-8 md:py-12 bg-muted">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="bg-card p-6 rounded-xl border border-border">
-              <div className="font-display text-3xl md:text-4xl text-accent">
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 md:gap-4 text-center">
+            <div className="bg-card p-4 md:p-6 rounded-xl border border-border">
+              <div className="font-display text-2xl sm:text-3xl md:text-4xl text-accent">
                 10+
               </div>
-              <div className="text-sm text-muted-foreground mt-1">
+              <div className="text-xs md:text-sm text-muted-foreground mt-1">
                 Advanced Cranes
               </div>
             </div>
-            <div className="bg-card p-6 rounded-xl border border-border">
-              <div className="font-display text-3xl md:text-4xl text-accent">
+            <div className="bg-card p-4 md:p-6 rounded-xl border border-border">
+              <div className="font-display text-2xl sm:text-3xl md:text-4xl text-accent">
                 800T
               </div>
-              <div className="text-sm text-muted-foreground mt-1">
+              <div className="text-xs md:text-sm text-muted-foreground mt-1">
                 Max Capacity
               </div>
             </div>
-            <div className="bg-card p-6 rounded-xl border border-border">
-              <div className="font-display text-3xl md:text-4xl text-accent">
+            <div className="bg-card p-4 md:p-6 rounded-xl border border-border">
+              <div className="font-display text-2xl sm:text-3xl md:text-4xl text-accent">
                 168m
               </div>
-              <div className="text-sm text-muted-foreground mt-1">
+              <div className="text-xs md:text-sm text-muted-foreground mt-1">
                 Max Hub Height
               </div>
             </div>
-            <div className="bg-card p-6 rounded-xl border border-border">
-              <div className="font-display text-3xl md:text-4xl text-accent">
+            <div className="bg-card p-4 md:p-6 rounded-xl border border-border">
+              <div className="font-display text-2xl sm:text-3xl md:text-4xl text-accent">
                 24/7
               </div>
-              <div className="text-sm text-muted-foreground mt-1">
+              <div className="text-xs md:text-sm text-muted-foreground mt-1">
                 Support Available
               </div>
             </div>
@@ -222,13 +222,13 @@ export default function Equipment() {
           />
 
           {/* Equipment Table */}
-          <div className="rounded-xl border border-border bg-card overflow-hidden">
+          <div className="rounded-xl border border-border bg-card overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/50 hover:bg-muted/50">
-                  <TableHead className="font-display text-base tracking-wide">S.No.</TableHead>
-                  <TableHead className="font-display text-base tracking-wide">Equipment Name</TableHead>
-                  <TableHead className="font-display text-base tracking-wide">Capacity</TableHead>
+                  <TableHead className="font-display text-sm md:text-base tracking-wide whitespace-nowrap">S.No.</TableHead>
+                  <TableHead className="font-display text-sm md:text-base tracking-wide">Equipment Name</TableHead>
+                  <TableHead className="font-display text-sm md:text-base tracking-wide whitespace-nowrap">Capacity</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -240,14 +240,14 @@ export default function Equipment() {
                       index % 2 === 0 ? "bg-background" : "bg-muted/30"
                     )}
                   >
-                    <TableCell className="font-display text-lg text-muted-foreground">
+                    <TableCell className="font-display text-base md:text-lg text-muted-foreground">
                       {index + 1}
                     </TableCell>
-                    <TableCell className="font-semibold text-foreground">
+                    <TableCell className="font-medium text-sm md:font-semibold md:text-base text-foreground">
                       {item.name}
                     </TableCell>
                     <TableCell>
-                      <span className="font-display text-lg text-accent">
+                      <span className="font-display text-base md:text-lg text-accent whitespace-nowrap">
                         {item.capacity}
                       </span>
                     </TableCell>

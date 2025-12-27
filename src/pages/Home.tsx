@@ -125,7 +125,7 @@ export default function Home() {
         keywords="crane rental, heavy lifting, WTG erection, girder erection, crawler crane, infrastructure"
       />
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24">
+      <section className="relative min-h-screen flex items-center justify-center pt-20 md:pt-24">
         {/* Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
@@ -142,11 +142,11 @@ export default function Home() {
         {/* Content */}
         <div
           ref={heroRef.ref}
-          className="relative z-10 container-custom text-center text-white py-20"
+          className="relative z-10 container-custom text-center text-white py-12 md:py-20 px-4"
         >
           <span
             className={cn(
-              "inline-block px-5 py-2.5 bg-accent/20 text-accent text-sm font-semibold tracking-widest uppercase rounded-full mb-8 border border-accent/30 backdrop-blur-sm",
+              "inline-block px-3 py-2 md:px-5 md:py-2.5 bg-accent/20 text-accent text-xs md:text-sm font-semibold tracking-widest uppercase rounded-full mb-6 md:mb-8 border border-accent/30 backdrop-blur-sm",
               "opacity-0",
               heroRef.isVisible && "animate-fade-up"
             )}
@@ -155,7 +155,7 @@ export default function Home() {
           </span>
           <h1
             className={cn(
-              "font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider leading-[0.9]",
+              "font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-wider leading-[0.9]",
               "opacity-0",
               heroRef.isVisible && "animate-fade-up delay-100"
             )}
@@ -166,7 +166,7 @@ export default function Home() {
           </h1>
           <p
             className={cn(
-              "mt-8 text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed",
+              "mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed px-2",
               "opacity-0",
               heroRef.isVisible && "animate-fade-up delay-200"
             )}
@@ -177,7 +177,7 @@ export default function Home() {
           </p>
           <div
             className={cn(
-              "mt-12 flex flex-col sm:flex-row items-center justify-center gap-4",
+              "mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4",
               "opacity-0",
               heroRef.isVisible && "animate-fade-up delay-300"
             )}
@@ -185,17 +185,17 @@ export default function Home() {
             <Link to="/services">
               <Button
                 size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2 text-base h-14 px-8 text-lg font-semibold shadow-lg shadow-accent/30"
+                className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 gap-2 text-base h-12 md:h-14 px-6 md:px-8 font-semibold shadow-lg shadow-accent/30"
               >
                 Explore Our Services
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
             <Link to="/equipment">
               <Button
                 size="lg"
                 variant="hero"
-                className="gap-2 text-base h-14 px-8 text-lg"
+                className="w-full sm:w-auto gap-2 text-base h-12 md:h-14 px-6 md:px-8"
               >
                 View Equipment Fleet
               </Button>
@@ -204,8 +204,8 @@ export default function Home() {
 
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+        {/* Scroll indicator - hidden on mobile */}
+        <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
           <div className="w-8 h-12 border-2 border-white/30 rounded-full flex items-start justify-center p-2 backdrop-blur-sm">
             <div className="w-1.5 h-3 bg-accent rounded-full animate-bounce" />
           </div>
@@ -213,9 +213,9 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-muted">
+      <section className="py-10 md:py-16 bg-muted">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
             {stats.map((stat, index) => (
               <StatCard
                 key={stat.label}
@@ -336,7 +336,7 @@ export default function Home() {
             title="OUR CORE SERVICES"
             subtitle="Comprehensive heavy lifting and erection solutions for infrastructure development."
           />
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-4 md:gap-6 md:grid-cols-2">
             {services.map((service, index) => (
               <ServiceCard
                 key={service.title}
@@ -364,7 +364,7 @@ export default function Home() {
             title="ADVANCED EQUIPMENT"
             subtitle="State-of-the-art crawler cranes and machinery for precision lifting operations."
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
             {featuredEquipment.map((equipment, index) => (
               <EquipmentCard
                 key={equipment.name}
@@ -392,7 +392,7 @@ export default function Home() {
             title="FEATURED PROJECTS"
             subtitle="Landmark infrastructure projects delivered with precision and excellence."
           />
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-6">
             {featuredProjects.map((project, index) => (
               <ProjectCard key={project.title} {...project} delay={index * 100} />
             ))}
@@ -416,7 +416,7 @@ export default function Home() {
             title="OUR ESTEEMED CLIENTS"
             subtitle="Partnering with India's leading infrastructure and construction companies."
           />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-6">
             {clients.map((client, index) => (
               <ClientLogo
                 key={client}

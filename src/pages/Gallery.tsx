@@ -199,21 +199,21 @@ export default function Gallery() {
       />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-primary/10 via-background to-background">
-        <div className="container-custom">
+      <section className="relative pt-24 pb-10 md:pt-32 md:pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-br from-primary/10 via-background to-background">
+        <div className="container-custom px-4">
           <div
             ref={headerRef}
             className={`max-w-3xl mx-auto text-center transition-all duration-700 ${
               headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">
+            <Badge className="mb-3 md:mb-4 bg-accent/20 text-accent border-accent/30">
               Our Work
             </Badge>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 tracking-wide">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 md:mb-6 tracking-wide">
               Project Gallery
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Visual showcase of our expertise in crane operations, heavy lifting,
               and infrastructure development across diverse industries.
             </p>
@@ -222,13 +222,14 @@ export default function Gallery() {
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 border-b border-border bg-muted/30">
-        <div className="container-custom">
+      <section className="py-6 md:py-8 border-b border-border bg-muted/30">
+        <div className="container-custom px-4">
           <div className="flex flex-wrap justify-center gap-2">
             {categories.map((category) => (
               <Button
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
+                size="sm"
                 onClick={() => setSelectedCategory(category)}
                 className={
                   selectedCategory === category
@@ -244,22 +245,22 @@ export default function Gallery() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 md:py-24">
-        <div className="container-custom">
-          <div className="space-y-16">
+      <section className="py-10 md:py-16 lg:py-24">
+        <div className="container-custom px-4">
+          <div className="space-y-10 md:space-y-16">
             {filteredProjects.map((project) => (
-              <div key={project.id} className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <Badge className="bg-primary/10 text-primary border-primary/20">
+              <div key={project.id} className="space-y-4 md:space-y-6">
+                <div className="flex flex-wrap items-center gap-2 md:gap-4">
+                  <Badge className="bg-primary/10 text-primary border-primary/20 text-xs md:text-sm">
                     {project.category}
                   </Badge>
-                  <h2 className="font-display text-2xl md:text-3xl text-foreground">
+                  <h2 className="font-display text-xl sm:text-2xl md:text-3xl text-foreground">
                     {project.title}
                   </h2>
                 </div>
 
                 {/* Image Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
                   {project.images.map((image, index) => (
                     <div
                       key={index}
