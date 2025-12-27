@@ -41,8 +41,8 @@ export function Header() {
         className={cn(
           "rounded-2xl transition-all duration-500 border",
           isScrolled
-            ? "bg-background/90 backdrop-blur-xl shadow-xl border-border"
-            : "bg-background/70 backdrop-blur-lg border-border/50"
+            ? "bg-background/95 backdrop-blur-xl shadow-xl border-border"
+            : "bg-background/95 backdrop-blur-xl shadow-lg border-border"
         )}
       >
         <div className="container-custom">

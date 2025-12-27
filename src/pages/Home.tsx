@@ -142,72 +142,92 @@ export default function Home() {
         {/* Content */}
         <div
           ref={heroRef.ref}
-          className="relative z-10 container-custom text-center text-white py-12 md:py-20 px-4"
+          className="relative z-10 container-custom text-center text-white flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] py-12 md:py-20 px-4"
         >
-          <span
-            className={cn(
-              "inline-block px-3 py-2 md:px-5 md:py-2.5 bg-accent/20 text-accent text-xs md:text-sm font-semibold tracking-widest uppercase rounded-full mb-6 md:mb-8 border border-accent/30 backdrop-blur-sm",
-              "opacity-0",
-              heroRef.isVisible && "animate-fade-up"
-            )}
-          >
-            India's Premier Heavy Lifting Company
-          </span>
-          <h1
-            className={cn(
-              "font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-wider leading-[0.9]",
-              "opacity-0",
-              heroRef.isVisible && "animate-fade-up delay-100"
-            )}
-          >
-            PRECISION
-            <br />
-            <span className="text-accent drop-shadow-[0_0_30px_hsl(var(--accent)/0.5)]">LIFTING</span>
-          </h1>
-          <p
-            className={cn(
-              "mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed px-2",
-              "opacity-0",
-              heroRef.isVisible && "animate-fade-up delay-200"
-            )}
-          >
-            Delivering excellence in crane rental, WTG erection, and girder
-            installation with over <span className="text-accent font-semibold">2 lakh tons</span> of successful projects 
-            and an impeccable <span className="text-accent font-semibold">zero-incident</span> safety record.
-          </p>
-          <div
-            className={cn(
-              "mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4",
-              "opacity-0",
-              heroRef.isVisible && "animate-fade-up delay-300"
-            )}
-          >
-            <Link to="/services">
-              <Button
-                size="lg"
-                className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 gap-2 text-base h-12 md:h-14 px-6 md:px-8 font-semibold shadow-lg shadow-accent/30"
+          {/* Main content wrapper */}
+          <div className="flex-1 flex flex-col items-center justify-center">
+            <span
+              className={cn(
+                "inline-block px-4 py-2.5 md:px-6 md:py-3 bg-white/10 text-accent text-[10px] md:text-xs font-bold tracking-[0.25em] uppercase rounded-full mb-8 md:mb-10 border border-accent/40 backdrop-blur-md",
+                "opacity-0",
+                heroRef.isVisible && "animate-fade-up"
+              )}
+            >
+              India's Premier Heavy Lifting Company
+            </span>
+            
+            <div className="relative">
+              {/* Decorative line */}
+              <div className={cn(
+                "absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 w-8 md:w-20 h-[2px] bg-gradient-to-r from-transparent to-accent/60",
+                "opacity-0",
+                heroRef.isVisible && "animate-fade-up delay-100"
+              )} />
+              <div className={cn(
+                "absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 w-8 md:w-20 h-[2px] bg-gradient-to-l from-transparent to-accent/60",
+                "opacity-0",
+                heroRef.isVisible && "animate-fade-up delay-100"
+              )} />
+              
+              <h1
+                className={cn(
+                  "font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-[0.85]",
+                  "opacity-0",
+                  heroRef.isVisible && "animate-fade-up delay-100"
+                )}
               >
-                Explore Our Services
-                <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
-              </Button>
-            </Link>
-            <Link to="/equipment">
-              <Button
-                size="lg"
-                variant="hero"
-                className="w-full sm:w-auto gap-2 text-base h-12 md:h-14 px-6 md:px-8"
-              >
-                View Equipment Fleet
-              </Button>
-            </Link>
+                <span className="block text-white/95">PRECISION</span>
+                <span className="block text-accent drop-shadow-[0_0_40px_hsl(var(--accent)/0.6)] mt-1 md:mt-2">LIFTING</span>
+              </h1>
+            </div>
+            
+            <p
+              className={cn(
+                "mt-8 md:mt-10 text-sm md:text-base lg:text-lg text-white/75 max-w-xl mx-auto leading-relaxed font-light tracking-wide",
+                "opacity-0",
+                heroRef.isVisible && "animate-fade-up delay-200"
+              )}
+            >
+              Excellence in crane rental, WTG erection & girder installation. 
+              <span className="block mt-2 text-white/90 font-medium">
+                <span className="text-accent">2 Lakh+ Tons</span> lifted · <span className="text-accent">Zero Incidents</span>
+              </span>
+            </p>
+            
+            <div
+              className={cn(
+                "mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5",
+                "opacity-0",
+                heroRef.isVisible && "animate-fade-up delay-300"
+              )}
+            >
+              <Link to="/services">
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 gap-2.5 text-sm md:text-base h-12 md:h-14 px-8 md:px-10 font-bold shadow-xl shadow-accent/40 hover:shadow-accent/50 transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  Explore Services
+                  <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
+                </Button>
+              </Link>
+              <Link to="/equipment">
+                <Button
+                  size="lg"
+                  variant="hero"
+                  className="w-full sm:w-auto gap-2.5 text-sm md:text-base h-12 md:h-14 px-8 md:px-10 font-semibold hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  View Fleet
+                </Button>
+              </Link>
+            </div>
           </div>
 
-        </div>
-
-        {/* Scroll indicator - hidden on mobile */}
-        <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-8 h-12 border-2 border-white/30 rounded-full flex items-start justify-center p-2 backdrop-blur-sm">
-            <div className="w-1.5 h-3 bg-accent rounded-full animate-bounce" />
+          {/* Scroll indicator with gap - hidden on mobile */}
+          <div className="hidden md:flex flex-col items-center mt-16 md:mt-20">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-3">Scroll</span>
+            <div className="w-6 h-10 border-2 border-white/25 rounded-full flex items-start justify-center p-1.5">
+              <div className="w-1 h-2.5 bg-accent rounded-full animate-bounce" />
+            </div>
           </div>
         </div>
       </section>
